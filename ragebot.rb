@@ -1,25 +1,27 @@
+#encoding: utf-8
+
 require 'chatterbot/dsl'
 
 class RageBot
   
-  $msg = ["Acho pouco.", "Acho justo.", "Tem mais que se arrombar.", "Bem feito."]
+  $msg = ["Acho pouco.", "Acho justo.", "Tem mais que se arrombar.", "Bem feito.", "Ahahaha se fodeu, acho pouco, to rindo mto!!", 'chapéu de otário é marreta, acho é pouco']
   $bot = Chatterbot::Bot.new
   $already_replied = ["sample"]
   
   def initialize(query)
     $bot.search(query) do |tweet|
-      rmsg = $msg[rand(4)]
+      rmsg = $msg[rand($msg.size-1)]
       unless $already_replied.include?(tweet[:text])
         $bot.reply "#{tweet_user(tweet)} #{rmsg}", tweet
         $already_replied << tweet[:text]
-        puts "Respondi #{tweet_user(tweet)}: #{tweet[:text]} com #{rmsg} "+Time.now.strftime("as %I:%M %p")
+        puts "Respondi '#{tweet_user(tweet)}': '#{tweet[:text]}' com '#{rmsg}' @" + Time.now.strftime("as %I:%M %p")
       end
     end
   end
 end
 
 loop do
-  queries = ['"pqp que merda"', '"me arrombei"', '"me fudi na prova"', '"me fodi na prova"', '"pqp, que merda"']
+  queries = ['"pqp que merda"', '"me arrombei"', '"me fudi na prova"', '"me fodi na prova"', '"pqp, que merda", "me dei mal", "me dei mau", "to fudido"']
   queries.each do |query|
     r = RageBot.new(query)
   end
