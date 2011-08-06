@@ -12,7 +12,7 @@ class RageBot
       unless $already_replied.include?(tweet[:text])
         $bot.reply "#{tweet_user(tweet)} #{rmsg}", tweet
         $already_replied << tweet[:text]
-        puts "Respondi #{tweet[:text]} com #{rmsg} "+Time.now.strftime("as %I:%M %p")
+        puts "Respondi #{tweet_user(tweet)}: #{tweet[:text]} com #{rmsg} "+Time.now.strftime("as %I:%M %p")
       end
     end
   end
