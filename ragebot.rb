@@ -12,17 +12,16 @@ class RageBot
       unless $already_replied.include?(tweet[:text])
         $bot.reply "#{tweet_user(tweet)} #{rmsg}", tweet
         $already_replied << tweet[:text]
-        puts "Respondi #{tweet[:text]} com #{rmsg}"
+        puts "Respondi #{tweet[:text]} com #{rmsg} "+Time.now.strftime("as %I:%M %p")
       end
     end
   end
 end
 
 loop do
-  r = RageBot.new('"pqp que merda"')
-  r2 = RageBot.new('"me arrombei"')
-  r3 = RageBot.new('"me fudi na prova"')
-  r4 = RageBot.new('"me fodi na prova"')
-  r5 = RageBot.new('"pqp, que merda"')
+  queries = ['"pqp que merda"', '"me arrombei"', '"me fudi na prova"', '"me fodi na prova"', '"pqp, que merda"']
+  queries.each do |query|
+    r = RageBot.new(query)
+  end
   sleep(600)
 end
