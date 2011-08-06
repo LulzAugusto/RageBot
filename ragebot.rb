@@ -10,7 +10,7 @@ class RageBot
   
   def initialize(query)
     $bot.search(query) do |tweet|
-      rmsg = $msg[rand($msg.size-1)]
+      rmsg = $msg[rand($msg.size)]
       unless $already_replied.include?(tweet[:text])
         $bot.reply "#{tweet_user(tweet)} #{rmsg}", tweet
         $already_replied << tweet[:text]
