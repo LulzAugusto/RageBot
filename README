@@ -1,0 +1,15 @@
+Makes fun of angry people on Twitter. (brazilians only)
+
+Create an app:
+
+1. Setup your own app on Twitter at this URL twitter.com/apps/new
+2. Choose ‘Client’ as the app type
+3. Choose ‘Read & Write’ access unless you don’t need to send tweets.
+4. Take the consumer key/consumer secret values.
+
+Run the bot:
+
+1. gem install chatterbot
+2. ruby ragebot.rb
+3. Enter the consumer key/consumer secret values when prompted.
+4. Have fun!
