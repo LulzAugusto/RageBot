@@ -29,5 +29,5 @@ loop do
   queries.each do |query|
     r = RageBot.new(query)
   end
-  sleep(600)
+  sleep(30)
 end
