@@ -20,7 +20,10 @@ class RageBot
       end
       $bot.replies do |tweet|
         chat = "#{tweet_user(tweet)} Sou um bot, babaca."
-        $bot.reply chat, tweet
+        unless $already_replied.include?(tweet[:text])
+          $bot.reply chat, tweet
+          $already_replied << tweet[:text]
+        end
       end
     rescue
       puts "Erro"
