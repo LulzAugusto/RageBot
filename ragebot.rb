@@ -18,6 +18,10 @@ class RageBot
           puts "Respondi '#{tweet_user(tweet)}': '#{tweet[:text]}' com '#{rmsg}' @" + Time.now.strftime(" %I:%M %p")
         end
       end
+      $bot.replies do |tweet|
+        chat = "#{tweet_user(tweet)} Sou um bot, babaca."
+        $bot.reply chat, tweet
+      end
     rescue
       puts "Erro"
     end
